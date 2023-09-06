@@ -11,6 +11,7 @@ public class HelloServlet extends HttpServlet {
 
     public void init() {
         message = "Hello World!";
+        System.out.println("HelloServlet init");
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -18,11 +19,12 @@ public class HelloServlet extends HttpServlet {
 
         // Hello
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+        out.println("123");
+        out.flush();
+        out.close();
     }
 
     public void destroy() {
+        System.out.println("Servlet destroy");
     }
 }
