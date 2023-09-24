@@ -1,0 +1,37 @@
+.container{
+    width:  80%;
+    margin: 0 auto;
+    background-color: #73b7bf;
+
+}
+/*输出长度截取*/
+ellipse{
+     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient: vertical ;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+/*清除浮动*/
+.clearfix{
+    *zoom:1;
+}
+
+/*浅白色背景*/
+.bg-white{
+    background-color: #f6f6f6;
+}
+
+.clearfix:after{
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0;
+}

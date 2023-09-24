@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/common.css">
+
+    <style>
+        .song-box {
+            padding: 10px 5px 5px 10px;
+            background-color: #FFF;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            box-shadow: 2px 5px 10px #aaa;
+            /*background-color: #73B7BF;*/
+            height: 150px;
+            margin: 10px;
+            cursor: pointer;
+            display: flex;
+            /*border-radius: 8px;*/
+
+        }
+
+        .fl>.mask {
+            width: 100px;
+            height: 140px;
+            background-color: #2b2f32;
+            opacity: .7;
+            z-index: 2;
+            padding: 5px;
+        }
+
+        .fl>.mask:hover {
+            opacity: .5;
+        }
+
+        .fr {
+            padding: 3px 4px;
+            text-align: left;
+        }
+
+        audio {
+
+            /*margin-left: 240px;*/
+            /*margin-bottom:70px ;*/
+            width: 220px;
+            height: 38px;
+            opacity: .5;
+        }
+
+   
+
+        body {
+
+            background: url(/images/songbg.jpg) no-repeat center;
+            height: 100%;
+            background-size: 100% 100%;
+        }
+    </style>
+
+</head>
+
+<body onload="load()" class="bg-white">
+   
+
+    <div id="container" class="w" class="song-box">
+
+
+
+    </div>
+
+
+    <script>
+        function load() {
+            $.ajax({
+                url: "/music/list",
+                type: "get",
+                dataType: "json",
+                success: json => {
+
+
+                    let list = json.data.list;
+                    for (let i = 0; i < list.length; i++) {
+
+                        let song = list[i];
+                        // console.log(song);
+                        let songDiv = $("<div class='song-box'></div>");
+                        songDiv.html(`
+                    <div class="fl" style="background-image:url(/images/${song.cover});background-size: 100% 100%;       border-radius: 20px; ">
+                   <div class="mask " style="    border-radius: 20px;">
+                  </div>
+                     </div>
+
+
+
+                <div class="fr" style="width: 1200px ">
+                      <div style="height: 20px">
+                    <div class="fl" >
+
+                    <h3 style="font-size:16px">歌手:${song.singer}</h3>
+                   <p style="font-size:12px">歌曲:${song.name}</p>
+
+                      </div>
+                   <div class="fr">
+                         <audio controls className="fr">
+    <source class="fr" src="mp3/${song.path}"   type="audio/mpeg"/>
+                </audio>
+                     </div>
+
+                </div>
+
+
+                <div style="position: relative; margin-top: 20px " >
+                  <p style="font-size:12px"class="ellipsis">${song.lyric}</p>
+                 </div>
+
+
+
+                        </div>
+                             ` )
+                        $("#container").append(songDiv);
+                    }
+                }
+            })
+
+        }
+    </script>
+
+</body>
+
+</html>

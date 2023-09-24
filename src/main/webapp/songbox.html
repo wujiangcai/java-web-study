@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>音乐盒子</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+<Script src="./js/jquery.min.js"></Script>
+    <link>
+<style>
+.song-box{
+  /*background-color:  #51b3bd;;*/
+  height: 100%;
+  margin:  10px;
+  cursor:  pointer;
+  /*display: flex;*/
+  /*  flex-direction: column;*/
+  border-radius: 8px;
+}
+.fr{
+  /*padding: 5px 10px;*/
+  text-align:  left;
+}
+audio{
+  margin-top:  20px;
+  width: 220px;
+  height: 38px;
+  opacity: .5;
+}
+#all-button{
+    position: absolute;
+    top: 60%;
+    left: 40%;
+}
+#prev-btn,#next-btn,#random-btn{
+    border: 2px solid;
+    border-radius: 20px;
+    margin-left: 50px ;
+    padding:2px 2px
+}
+
+#singer{
+    text-align: center;
+
+}
+#name{
+    text-align: center;
+}
+#cover{
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
+.audio-div{
+    position: absolute;
+    top:45%;
+    left: 44%;
+
+}
+ #path{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+}
+.rotating {
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+</style>
+  
+</head>
+<body onload="load()" class="hover-gradient">
+  <div class="w">
+    <div class="song-box">
+         <div class="">
+          <img src="" alt="" id="cover" width="180" height="180">
+         </div>
+<!--        歌手名字加歌词-->
+        <div class="">
+          <h3 id="name"></h3>
+          <p id="singer"></p>
+          <p class="ellipsis" id="lyric">
+          </p>
+
+
+        </div>
+        <!--        歌手名字加歌词结束-->
+
+<!--播放器-->
+        <div class="audio-div fr">
+            <audio src="" controls id="path"></audio>
+        </div>
+<!--        播放器结束-->
+
+<!--    按钮-->
+      <div id="all-button">
+    <button id="prev-btn">前一首</button>
+    <button id="next-btn">后一首</button>
+    <button id="random-btn">随机</button>
+</div>
+<!--   按钮结束-->
+     </div>
+  </div>
+  <script src="js/js.js"></script>
+</body>
+</html>

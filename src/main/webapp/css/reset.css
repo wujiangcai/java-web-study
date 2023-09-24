@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: red;
+}
+input,button{
+    font-family: 'Microsoft Sans Serif',sans-serif;
+    outline:none;
+    border: none;
+}
+
+
+li{
+    list-style: none;
+}
+body{
+
+    background-color: #f6f6f6;
+}
+
+
